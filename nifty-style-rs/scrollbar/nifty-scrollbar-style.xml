@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nifty-styles xmlns="http://nifty-gui.sourceforge.net/nifty-style-file.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://nifty-gui.sourceforge.net/nifty-style-file.xsd http://nifty-gui.sourceforge.net/nifty-style-file.xsd">
+  <!-- ++++++++ -->
+  <!-- vertical -->
+  <!-- ++++++++ -->
+  <style id="nifty-vertical-scrollbar#panel">
+    <attributes childLayout="vertical" width="16px" align="center" focusable="true" backgroundColor="#483E34" />
+  </style>
+  <style id="nifty-vertical-scrollbar#up">
+    <attributes filename="scrollbar/scrollbar.png" width="16px" height="16px" imageMode="sprite:16,16,3"/>
+    <effect>
+      <onClick name="focus" targetElement="#parent" />
+      <onClick name="imageOverlay" filename="scrollbar/scrollbar.png" imageMode="sprite:16,16,3" post="true" />
+      <onFocus name="imageOverlay" filename="scrollbar/scrollbar.png" imageMode="sprite:16,16,3" post="true" />
+      <onEnabled name="renderQuad" startColor="#2228" endColor="#2220" post="true" length="150" />
+      <onDisabled name="renderQuad" startColor="#2220" endColor="#2228" post="true" length="150" />
+    </effect>
+  </style>
+  <style id="nifty-vertical-scrollbar#down">
+    <attributes filename="scrollbar/scrollbar.png" width="16px" height="16px" imageMode="sprite:16,16,0"/>
+    <effect>
+      <onClick name="focus" targetElement="#parent" />
+      <onClick name="imageOverlay" filename="scrollbar/scrollbar.png" imageMode="sprite:16,16,0" post="true" />
+      <onFocus name="imageOverlay" filename="scrollbar/scrollbar.png" imageMode="sprite:16,16,0" post="true" />
+      <onEnabled name="renderQuad" startColor="#2228" endColor="#2220" post="true" length="150" />
+      <onDisabled name="renderQuad" startColor="#2220" endColor="#2228" post="true" length="150" />
+    </effect>
+  </style>
+  <style id="nifty-vertical-scrollbar#background">
+    <attributes width="16px" height="*" childLayout="absolute" />
+    <effect>
+      <onClick name="focus" targetElement="#parent" />
+    </effect>
+  </style>
+  <style id="nifty-vertical-scrollbar#position">
+    <attributes filename="scrollbar/scrollbar.png" x="0px" y="0px" width="16px" height="8px" imageMode="sprite-resize:16,16,13,3,10,3,3,3,10,3,10,3,10,3,3" childLayout="center" />
+    <effect>
+        <onClick name="focus" targetElement="#parent#parent" />
+    </effect>
+  </style>
+
+  <!-- ++++++++++ -->
+  <!-- horizontal -->
+  <!-- ++++++++++ -->
+  <style id="nifty-horizontal-scrollbar#panel">
+    <attributes childLayout="horizontal" height="16px" align="center" focusable="true" backgroundColor="#483E34" />
+  </style>
+  <style id="nifty-horizontal-scrollbar#left">
+    <attributes filename="scrollbar/scrollbar.png" width="16px" height="16px" imageMode="sprite:16,16,6"/>
+    <effect>
+      <onClick name="focus" targetElement="#parent" />
+      <onClick name="imageOverlay" filename="scrollbar/scrollbar.png" imageMode="sprite:16,16,6" post="true" />
+      <onFocus name="imageOverlay" filename="scrollbar/scrollbar.png" imageMode="sprite:16,16,6" post="true" />
+      <onEnabled name="renderQuad" startColor="#2228" endColor="#2220" post="true" length="150" />
+      <onDisabled name="renderQuad" startColor="#2220" endColor="#2228" post="true" length="150" />
+    </effect>
+  </style>
+  <style id="nifty-horizontal-scrollbar#right">
+    <attributes filename="scrollbar/scrollbar.png" width="16px" height="16px" imageMode="sprite:16,16,9"/>
+    <effect>
+      <onClick name="focus" targetElement="#parent" />
+      <onClick name="imageOverlay" filename="scrollbar/scrollbar.png" imageMode="sprite:16,16,9" post="true" />
+      <onFocus name="imageOverlay" filename="scrollbar/scrollbar.png" imageMode="sprite:16,16,9" post="true" />
+      <onEnabled name="renderQuad" startColor="#2228" endColor="#2220" post="true" length="150" />
+      <onDisabled name="renderQuad" startColor="#2220" endColor="#2228" post="true" length="150" />
+    </effect>
+  </style>
+  <style id="nifty-horizontal-scrollbar#background">
+    <attributes width="*" height="16px" childLayout="absolute" />
+    <effect>
+      <onClick name="focus" targetElement="#parent" />
+    </effect>
+  </style>
+  <style id="nifty-horizontal-scrollbar#position">
+    <attributes filename="scrollbar/scrollbar.png" x="0px" y="0px" width="8px" height="16px" imageMode="sprite-resize:16,16,17,3,10,3,3,1,14,1,10,3,10,3,3" />
+    <effect>
+      <onClick name="focus" targetElement="#parent#parent" />
+    </effect>
+  </style>
+</nifty-styles>

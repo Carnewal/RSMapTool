@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nifty xmlns="http://nifty-gui.sourceforge.net/nifty-1.3.xsd"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://nifty-gui.sourceforge.net/nifty-1.3.xsd ../../nifty-1.3.xsd ">
+	<useStyles filename="nifty-default-styles.xml" />
+	<useControls filename="nifty-default-controls.xml" />
+	<screen id="start" controller="org.fabian.rsmt.RSMapTool">
+		<layer childLayout="center">
+			<control id="window-minimap" name="window" title="Minimap"
+					hideOnClose="true" valign="top"
+					align="right" width="300px" height="300px">
+				<image align="center" valign="center" width="256px" height="256px" visibleToMouse="true" id="minimap" />
+			</control>
+			<panel valign="top" width="100%" height="40" visibleToMouse="false"
+				childLayout="horizontal">
+				<control name="button" label="Open Map" id="btnOpenMap">
+					<interact onClick="openMapMenuButton()" />
+				</control>
+				<control name="button" label="Save Map" id="btnSaveMap" />
+				<control id="showObjectsCheckbox" name="checkbox" checked="true" />
+				<text style="nifty-label" text="Show Objects" color="#eeef" />
+			</panel>
+			<control id="window-open" name="window" title="Open Map"
+				width="300px" height="200px" hideOnClose="true" valign="center"
+				align="center">
+				<panel childLayout="vertical" width="100%" height="100%">
+					<text style="nifty-label" text="Please enter the coordinates."
+						color="#eeef" align="center" />
+					<panel childLayout="horizontal" align="center">
+						<text style="nifty-label" text="X" color="#f00f" />
+						<control name="textfield" maxLength="5" id="openMapX" />
+					</panel>
+					<panel childLayout="horizontal" align="center">
+						<text style="nifty-label" text="Y" color="#0f0f" />
+						<control name="textfield" maxLength="5" id="openMapY" />
+					</panel>
+					<control id="openMapButton" name="button" label="Open Map"
+						width="100%">
+						<interact onClick="openMapConfirm()" />
+					</control>
+				</panel>
+			</control>
+			<control id="window-pickfloor" name="window" title="Select Floor Definition"
+				width="100%" height="150px" hideOnClose="true" valign="center"
+				align="center">
+				<control id="floScrollPanel" name="scrollPanel" horizontal="true"
+					vertical="false" height="128px" width="100%" stepSizeX="128">
+					<panel id="floScrollPanelContent" childLayout="horizontal" />
+				</control>
+			</control>
+			<control id="window-pickshape" name="window" title="Select Floor Shape"
+				width="100%" height="180px" hideOnClose="true" valign="center"
+				align="center">
+				<panel childLayout="vertical" width="100%" height="100%">
+					<control id="floMaskScrollPanel" name="scrollPanel"
+						horizontal="true" vertical="false" height="128px" width="100%"
+						stepSizeX="128">
+						<panel id="floMaskScrollPanelContent" childLayout="horizontal" />
+					</control>
+					<text style="nifty-label" text="White = Overlay, Black = Underlay" />
+				</panel>
+			</control>
+			<control id="edit_tabs" name="tabGroup" buttonWidth="50%"
+				buttonHeight="50px" valign="bottom" width="100%">
+				<control id="paint_tab" name="tab" caption="Paint">
+					<panel childLayout="horizontal" width="100%" height="150px">
+						<panel id="underlayPanel" childLayout="center" width="128px"
+							height="128px">
+							<interact onClick="openFloWindow(option-underlay)" />
+							<effect>
+								<onHover name="hint" hintText="Choose Underlay" />
+								<onActive name="border" color="#000F" border="4px" />
+							</effect>
+
+							<text style="nifty-label" align="center" valign="top" text="Underlay" />
+						</panel>
+						<panel id="overlayPanel" childLayout="center" width="128px"
+							height="128px">
+							<interact onClick="openFloWindow(option-overlay)" />
+							<effect>
+								<onHover name="hint" hintText="Choose Overlay" />
+								<onActive name="border" color="#000F" border="4px" />
+							</effect>
+
+							<text style="nifty-label" align="center" valign="top" text="Overlay" />
+						</panel>
+						<panel id="shapePanel" childLayout="center" width="128px"
+							height="128px">
+							<interact onClick="openFloWindow(option-shape)" />
+							<effect>
+								<onHover name="hint" hintText="Choose Shape" />
+								<onActive name="border" color="#000F" border="4px" />
+							</effect>
+							<image width="128px" height="128px" filename="Shapes/0.png"
+								id="shapeImg" />
+							<text style="nifty-label" align="center" valign="top" text="Shape Mask"
+								color="#f00f" />
+						</panel>
+
+						<panel style="nifty-panel" childLayout="vertical" width="128px"
+							height="128px">
+							<text style="nifty-label" text="Shape" />
+							<control name="label" text="Rotation: 0" id="currentRotLabel" />
+							<panel childLayout="horizontal">
+								<control name="button" label="-90" id="btnSRM" width="50%">
+									<interact onClick="shapeRotateButton(ccw)" />
+								</control>
+								<control name="button" label="+90" id="btnSRP" width="50%">
+									<interact onClick="shapeRotateButton(cw)" />
+								</control>
+							</panel>
+						</panel>
+					</panel>
+				</control>
+				<control id="sculpt_tab" name="tab" caption="Sculpt">
+					<panel childLayout="horizontal" width="100%" height="150px">
+						<panel style="nifty-panel-no-shadow" childLayout="vertical">
+							<text style="nifty-label" text="Sculpt Mode" />
+							<control id="sculptModeRadioGroup" name="radioButtonGroup" />
+							<panel childLayout="horizontal">
+								<control name="radioButton" id="option-shape" group="sculptModeRadioGroup" />
+								<text style="nifty-label" text="Floor Mask" />
+							</panel>
+							<panel childLayout="horizontal">
+								<control name="radioButton" id="option-rl" group="sculptModeRadioGroup" />
+								<text style="nifty-label" text="Raise/Lower" />
+							</panel>
+						</panel>
+					</panel>
+				</control>
+				<control id="object_tab" name="tab" caption="Objects">
+					<panel childLayout="horizontal" width="100%" height="150px">
+
+					</panel>
+				</control>
+			</control>
+		</layer>
+	</screen>
+</nifty>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nifty-styles>
+    <!-- The Tabs require the Nifty-Panel to be displayed properly. -->
+    <useStyles filename="panel/nifty-panel.xml"/>
+    <style id="nifty-table-row">
+        <effect>
+            <onHover name="border" color="#000f" border="3px" post="true" />
+        </effect>
+    </style>
+</nifty-styles>

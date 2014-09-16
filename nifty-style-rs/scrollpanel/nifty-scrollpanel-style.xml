@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nifty-styles>
+  <style id="nifty-scrollpanel#scrollpanel">
+    <attributes backgroundColor="#383028" />
+    <effect overlay="true">
+      <onActive name="blendMode" blendMode="multiply" post="true" />
+      <onActive name="border" color="#000F" />
+    </effect>
+  </style>
+  <style id="nifty-scrollpanel#bottom-right">
+    <attributes width="23px" height="23px" />
+  </style>
+</nifty-styles>
